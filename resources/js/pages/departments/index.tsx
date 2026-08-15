@@ -123,6 +123,7 @@ export default function DepartmentsIndex({ departments }: Props) {
                         <Form
                             {...DepartmentController.store.form()}
                             onSuccess={() => setCreateOpen(false)}
+                            invalidateCacheTags={['departments', 'employees']}
                             resetOnSuccess
                             className="space-y-4"
                         >
@@ -177,6 +178,7 @@ export default function DepartmentsIndex({ departments }: Props) {
                             <Form
                                 {...DepartmentController.update.form({ department: editingDepartment.id })}
                                 onSuccess={() => setEditingDepartment(null)}
+                                invalidateCacheTags={['departments', 'employees']}
                                 className="space-y-4"
                             >
                                 {({ processing, errors }) => (
@@ -233,6 +235,7 @@ export default function DepartmentsIndex({ departments }: Props) {
                             <Form
                                 {...DepartmentController.destroy.form({ department: deletingDepartment.id })}
                                 onSuccess={() => setDeletingDepartment(null)}
+                                invalidateCacheTags={['departments', 'employees']}
                             >
                                 {({ processing }) => (
                                     <DialogFooter className="gap-2">
