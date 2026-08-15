@@ -17,7 +17,7 @@ class DepartmentController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        return DepartmentResource::collection(Department::all());
+        return DepartmentResource::collection(Department::query()->latest()->get());
     }
 
     /**

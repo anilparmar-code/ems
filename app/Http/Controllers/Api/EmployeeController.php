@@ -17,7 +17,7 @@ class EmployeeController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        $employees = Employee::with('department')->get();
+        $employees = Employee::with('department')->latest()->get();
 
         return EmployeeResource::collection($employees);
     }
